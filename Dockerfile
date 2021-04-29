@@ -1,10 +1,9 @@
-FROM yeop2/gpt2_pride-and-prejudice:2
+FROM yeop2/gpt2_pride-and-prejudice:test3
 
 WORKDIR /app
+RUN pip install flask requests 
 
-RUN pip install flask requests transformers
-
-COPY . /app
+COPY . .
 
 EXPOSE 5000
 

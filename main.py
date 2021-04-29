@@ -1,4 +1,4 @@
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, GPT2Tokenizer
 from flask import Flask, request, jsonify, render_template
 import torch
 from queue import Queue, Empty
@@ -10,7 +10,7 @@ app = Flask(__name__)
 print("model loading...")
 
 # Model & Tokenizer loading
-tokenizer = AutoTokenizer.from_pretrained('gpt2')
+tokenizer = GPT2Tokenizer.from_pretrained('./model')
 model = AutoModelForCausalLM.from_pretrained('./model')
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
