@@ -5,6 +5,8 @@ RUN pip install flask requests
 
 COPY . .
 
+ENV NVIDIA_ true
+
 EXPOSE 5000
 
 CMD ["python3", "main.py"]
